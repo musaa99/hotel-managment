@@ -5,6 +5,8 @@ import './App.css';
 import CreateHotel from './Pages/CreateHotel';
 import HotelList from './Pages/HotelList';
 import { fetchCountries } from './Redux/countrySlice';
+import Home from './Pages/Home';
+import NavBar from './Components/NavBar';
 
 function App() {
   const dispatch = useDispatch();
@@ -15,9 +17,10 @@ function App() {
 
   return (
     <div className="App">
-       <h1>Hotel Management App</h1>
-     <CreateHotel/>
-     <HotelList/>
+      <NavBar />
+      <Home />
+     {/* <CreateHotel/>
+     <HotelList/> */}
     </div>
   );
 }

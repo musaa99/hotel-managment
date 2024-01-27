@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { deleteHotel } from '../Redux/hotelsSlice';
 import { Card, CardContent, Typography, Button, Dialog, DialogContent, DialogActions } from '@mui/material';
 import HotelEditForm from './HotelEditForm';
+import Modal from '../Components/Modal';
 
 const HotelItem = ({ hotel }) => {
   const dispatch = useDispatch();
@@ -33,16 +34,11 @@ const HotelItem = ({ hotel }) => {
           Edit
         </Button>
       </CardContent>
-      <Dialog open={editDialogOpen} onClose={handleEditDialogClose}>
-        <DialogContent>
-          <HotelEditForm hotel={hotel} onClose={handleEditDialogClose} />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleEditDialogClose} color="primary">
-            Cancel
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <Modal
+        open={editDialogOpen}
+        onClose={handleEditDialogClose}
+        dialogContent={<HotelEditForm hotel={hotel} onClose={handleEditDialogClose} />}
+      />
     </Card>
   );
 };
