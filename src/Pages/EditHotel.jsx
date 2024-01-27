@@ -9,8 +9,6 @@ const HotelEditForm = ({ hotel, onClose }) => {
   const [editedHotelName, setEditedHotelName] = useState(hotel.name);
   const [editedCategory, setEditedCategory] = useState(hotel.category);
 
-  const categories = ['1 Star', '2 Star', '3 Star']; // Predefined options
-
   const handleEdit = () => {
     dispatch(editHotel({ id: hotel.id, name: editedHotelName, category: editedCategory }));
     onClose();
@@ -28,7 +26,7 @@ const HotelEditForm = ({ hotel, onClose }) => {
       <FormControl fullWidth margin="normal">
         <InputLabel>Category</InputLabel>
         <Select value={editedCategory} onChange={(e) => setEditedCategory(e.target.value)}>
-          {categories.map((cat) => (
+          {hotel.categories.map((cat) => (
             <MenuItem key={cat} value={cat}>
               {cat}
             </MenuItem>

@@ -3,7 +3,6 @@ import React from 'react';
 
 const Home = () => {
   return (
-    <div>
       <Container
         style={{
           display: 'flex',
@@ -17,7 +16,6 @@ const Home = () => {
           <Typography> Welcome to Musa's hotel ranking</Typography>
         </Box>
     </Container>
-    </div>
   )
 }
 

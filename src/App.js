@@ -8,6 +8,7 @@ import HotelList from './Pages/HotelList';
 import { fetchCountries } from './Redux/countrySlice';
 import Home from './Pages/Home';
 import NavBar from './Components/NavBar';
+import HotelCategories from './Pages/HotelCategories';
 
 function App() {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/hotel" element={<HotelList />} />
-          <Route path="/categories" element={<HotelAddForm />} />
+          <Route path="/categories" element={<HotelCategories />} />
         </Routes>
       </div>
     </Router>

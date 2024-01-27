@@ -4,13 +4,12 @@ import { useDispatch } from 'react-redux';
 import { editHotel } from '../Redux/hotelsSlice';
 import { TextField, Button, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
 import Categories from '../Components/Categories';
+import CustomSelect from '../Components/CustomSelect';
 
 const HotelEditForm = ({ hotel, onClose }) => {
   const dispatch = useDispatch();
   const [editedHotelName, setEditedHotelName] = useState(hotel.name);
   const [editedCategory, setEditedCategory] = useState(hotel.category);
-
-  const categories = ['1 Star', '2 Star', '3 Star']; // Predefined options
 
   const handleEdit = () => {
     dispatch(editHotel({ id: hotel.id, name: editedHotelName, category: editedCategory }));
@@ -26,16 +25,6 @@ const HotelEditForm = ({ hotel, onClose }) => {
         fullWidth
         margin="normal"
       />
-      <FormControl fullWidth margin="normal">
-        <InputLabel>Category</InputLabel>
-        <Select value={editedCategory} onChange={(e) => setEditedCategory(e.target.value)}>
-          {categories.map((cat) => (
-            <MenuItem key={cat} value={cat}>
-              {cat}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
 
       <Categories selectedRating={editedCategory} setSelectedRating={setEditedCategory} />
 

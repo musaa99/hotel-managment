@@ -5,19 +5,14 @@ import { useSelector } from 'react-redux';
 
 import { addHotel } from '../Redux/hotelsSlice';
 
-
 import { TextField, Button, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
 import Categories from '../Components/Categories';
-// import TextField from '@mui/material/TextField';
-// import Button from '@mui/material/Button';
-// import MenuItem from '@mui/material/MenuItem';
-// import Select from '@mui/material/Select';
-// import InputLabel from '@mui/material/InputLabel';
-// import FormControl from '@mui/material/FormControl';
+import CustomSelect from '../Components/CustomSelect';
+
 const HotelAddForm = ({closeDialog}) => {
   const dispatch = useDispatch();
   const [hotelName, setHotelName] = useState('');
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState(0);
 
   const [selectedCountry, setSelectedCountry] = useState({});
   const [selectedCity, setSelectedCity] = useState('');
@@ -46,39 +41,32 @@ const HotelAddForm = ({closeDialog}) => {
         fullWidth
         margin="normal"
       />
-      <FormControl fullWidth style={{ marginBottom: 16, marginTop: 16 }}>
-        <InputLabel>Countries</InputLabel>
-        <Select
-          value={selectedCountry?.country}
-          label="Country"
-          margin="normal"
-          onChange={(e) => setSelectedCountry(countries.find(country => country.country === e.target.value))}
-        >
-          <MenuItem value="">Select Country</MenuItem>
-          {countries.map((country, index) => (
+
+      <CustomSelect
+        label="Countries"
+        selected={selectedCountry?.country}
+        setSelected={(e) => setSelectedCountry(countries.find(country => country.country === e.target.value))}
+        menu={
+          countries.map((country, index) => (
             <MenuItem key={index} value={country.country}>
               {country.country}
             </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+          ))
+        }
+      />
 
-      <FormControl fullWidth style={{ marginBottom: 16, marginTop: 16 }}>
-        <InputLabel>Cities</InputLabel>
-        <Select
-          value={selectedCity}
-          label="Country"
-          onChange={(e) => setSelectedCity(e.target.value)}
-        >
-          <MenuItem value="">Select City from {selectedCountry.country}</MenuItem>
-          {selectedCountry?.cities && selectedCountry?.cities.map((city, index) => (
+      <CustomSelect
+        label="Cities"
+        selected={selectedCity}
+        setSelected={(e) => setSelectedCity(e.target.value)}
+        menu={
+          selectedCountry?.cities && selectedCountry?.cities.map((city, index) => (
             <MenuItem key={index} value={city}>
               {city}
             </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-
+          ))
+        }
+      />
       <Categories selectedRating={category} setSelectedRating={setCategory} />
       <Button type="submit" variant="contained" color="primary" fullWidth>
         Add Hotel

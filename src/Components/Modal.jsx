@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Button, Dialog, DialogContent, DialogActions } from '@mui/material';
+import {Button, Dialog, DialogContent, DialogActions, Box } from '@mui/material';
 
 const Modal = ({open, onClose, dialogContent}) => {
   return (
