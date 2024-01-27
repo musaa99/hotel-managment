@@ -14,7 +14,7 @@ const HotelAddForm = ({closeDialog}) => {
   const [hotelName, setHotelName] = useState('');
   const [category, setCategory] = useState(0);
 
-  const [selectedCountry, setSelectedCountry] = useState({});
+  const [selectedCountry, setSelectedCountry] = useState();
   const [selectedCity, setSelectedCity] = useState('');
 
   const { countries } = useSelector((state) => state.countries);
@@ -31,6 +31,8 @@ const HotelAddForm = ({closeDialog}) => {
     setCategory('');
     closeDialog()
   };
+
+  const disabled = !selectedCity || !hotelName;
 
   return (
     <form onSubmit={handleSubmit}>
@@ -54,21 +56,28 @@ const HotelAddForm = ({closeDialog}) => {
           ))
         }
       />
-
-      <CustomSelect
-        label="Cities"
-        selected={selectedCity}
-        setSelected={(e) => setSelectedCity(e.target.value)}
-        menu={
-          selectedCountry?.cities && selectedCountry?.cities.map((city, index) => (
-            <MenuItem key={index} value={city}>
-              {city}
-            </MenuItem>
-          ))
-        }
-      />
+      {selectedCountry &&
+        <CustomSelect
+          label="Cities"
+          selected={selectedCity}
+          setSelected={(e) => setSelectedCity(e.target.value)}
+          menu={
+            selectedCountry?.cities && selectedCountry?.cities.map((city, index) => (
+              <MenuItem key={index} value={city}>
+                {city}
+              </MenuItem>
+            ))
+          }
+        />
+      }
       <Categories selectedRating={category} setSelectedRating={setCategory} />
-      <Button type="submit" variant="contained" color="primary" fullWidth>
+      <Button
+        type="submit"
+        variant="contained"
+        color="primary"
+        fullWidth
+        disabled={disabled}
+      >
         Add Hotel
       </Button>
     </form>
