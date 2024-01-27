@@ -2,12 +2,13 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
-import './App.css';
-import HotelList from './Pages/HotelList';
 import { fetchCountries } from './Redux/countrySlice';
+
+import './App.css';
 import Home from './Pages/Home';
-import NavBar from './Components/NavBar';
+import HotelList from './Pages/HotelList';
 import HotelCategories from './Pages/HotelCategories';
+import NavBar from './Components/NavBar';
 
 function App() {
   const dispatch = useDispatch();
