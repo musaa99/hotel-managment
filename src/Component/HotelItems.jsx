@@ -1,7 +1,7 @@
 // components/HotelItem.js
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteHotel } from '../reducers/hotelReducer';
+import { deleteHotel } from '../Redux/hotelsSlice';
 import { Card, CardContent, Typography, Button, Dialog, DialogContent, DialogActions } from '@mui/material';
 import HotelEditForm from './HotelEditForm';
 

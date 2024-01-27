@@ -1,7 +1,7 @@
 // components/HotelList.js
 import React from 'react';
 import { useSelector } from 'react-redux';
-import HotelItem from './HotelItem';
+import HotelItem from './HotelItems';
 
 const HotelList = () => {
   const hotels = useSelector((state) => state.hotels.list);
