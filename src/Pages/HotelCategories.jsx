@@ -23,13 +23,13 @@ const HotelCategories = () => {
 
   return (
     <Box>
-      <Card sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', m: 4}}>
+      <Card sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: { md: 4 }}}>
         <Categories selectedRating={category} setSelectedRating={setCategory} />
         <Button
           variant="contained"
           onClick={() => setCategory()}
           color="primary"
-          sx={{ml: 40, mr: 4, width: '200px'}}
+          sx={{ml: { md: 40 }, mr: { md: 4 }, width: { md: '200px' }}}
         >
           Clear Filter
         </Button>
