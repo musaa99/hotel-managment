@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import './App.css';
-import CreateHotel from './Pages/CreateHotel';
+import HotelAddForm from './Pages/HotelAddForm';
 import HotelList from './Pages/HotelList';
 import { fetchCountries } from './Redux/countrySlice';
 import Home from './Pages/Home';
@@ -23,7 +23,7 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/hotel" element={<HotelList />} />
-          <Route path="/categories" element={<CreateHotel />} />
+          <Route path="/categories" element={<HotelAddForm />} />
         </Routes>
       </div>
     </Router>

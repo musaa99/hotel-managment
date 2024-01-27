@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { editHotel } from '../Redux/hotelsSlice';
 import { TextField, Button, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
+import Categories from '../Components/Categories';
 
 const HotelEditForm = ({ hotel, onClose }) => {
   const dispatch = useDispatch();
@@ -35,6 +36,9 @@ const HotelEditForm = ({ hotel, onClose }) => {
           ))}
         </Select>
       </FormControl>
+
+      <Categories selectedRating={editedCategory} setSelectedRating={setEditedCategory} />
+
       <Button onClick={handleEdit} variant="contained" color="primary" fullWidth>
         Save Changes
       </Button>

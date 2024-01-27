@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteHotel } from '../Redux/hotelsSlice';
-import { Card, CardContent, Typography, Button, Dialog, DialogContent, DialogActions } from '@mui/material';
+import { Card, CardContent, Typography, Button, Rating, Box } from '@mui/material';
 import HotelEditForm from './HotelEditForm';
 import Modal from '../Components/Modal';
 
@@ -23,10 +23,13 @@ const HotelItem = ({ hotel }) => {
   };
 
   return (
-    <Card style={{ margin: '10px', padding: '10px' }}>
+    <Card style={{ margin: '10px', padding: '10px', height: '200px' }}>
       <CardContent>
         <Typography variant="h5">{hotel.name}</Typography>
         <Typography variant="subtitle1" sx={{ my: 1 }}>Address: {hotel.city}, {hotel.country}</Typography>
+        <Box sx={{my: 1 }}>
+          <Rating name="read-only" value={hotel.category} readOnly />
+        </Box>
         <Button variant="outlined" color="secondary" onClick={handleDelete}>
           Delete
         </Button>

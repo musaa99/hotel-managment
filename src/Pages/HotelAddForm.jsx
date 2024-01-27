@@ -1,4 +1,4 @@
-// components/CreateHotel.js
+// components/HotelAddForm.js
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
@@ -7,13 +7,14 @@ import { addHotel } from '../Redux/hotelsSlice';
 
 
 import { TextField, Button, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
+import Categories from '../Components/Categories';
 // import TextField from '@mui/material/TextField';
 // import Button from '@mui/material/Button';
 // import MenuItem from '@mui/material/MenuItem';
 // import Select from '@mui/material/Select';
 // import InputLabel from '@mui/material/InputLabel';
 // import FormControl from '@mui/material/FormControl';
-const CreateHotel = () => {
+const HotelAddForm = ({closeDialog}) => {
   const dispatch = useDispatch();
   const [hotelName, setHotelName] = useState('');
   const [category, setCategory] = useState('');
@@ -21,15 +22,19 @@ const CreateHotel = () => {
   const [selectedCountry, setSelectedCountry] = useState({});
   const [selectedCity, setSelectedCity] = useState('');
 
-  const categories = ['1 Star', '2 Star', '3 Star']; // Predefined options
-
   const { countries } = useSelector((state) => state.countries);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addHotel({ name: hotelName, country: selectedCountry.country, city: selectedCity }));
+    dispatch(addHotel({
+      name: hotelName,
+      country: selectedCountry.country,
+      city: selectedCity,
+      category: category,
+    }));
     setHotelName('');
     setCategory('');
+    closeDialog()
   };
 
   return (
@@ -41,11 +46,12 @@ const CreateHotel = () => {
         fullWidth
         margin="normal"
       />
-      <FormControl fullWidth>
+      <FormControl fullWidth style={{ marginBottom: 16, marginTop: 16 }}>
         <InputLabel>Countries</InputLabel>
         <Select
           value={selectedCountry?.country}
           label="Country"
+          margin="normal"
           onChange={(e) => setSelectedCountry(countries.find(country => country.country === e.target.value))}
         >
           <MenuItem value="">Select Country</MenuItem>
@@ -57,7 +63,7 @@ const CreateHotel = () => {
         </Select>
       </FormControl>
 
-      <FormControl fullWidth>
+      <FormControl fullWidth style={{ marginBottom: 16, marginTop: 16 }}>
         <InputLabel>Cities</InputLabel>
         <Select
           value={selectedCity}
@@ -72,6 +78,8 @@ const CreateHotel = () => {
           ))}
         </Select>
       </FormControl>
+
+      <Categories selectedRating={category} setSelectedRating={setCategory} />
       <Button type="submit" variant="contained" color="primary" fullWidth>
         Add Hotel
       </Button>
@@ -79,4 +87,4 @@ const CreateHotel = () => {
   );
 };
 
-export default CreateHotel;
+export default HotelAddForm;
