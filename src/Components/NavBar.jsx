@@ -1,7 +1,6 @@
 import * as React from 'react';
-// import { Link, BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { Container, Link, Card, CardContent, Typography, Button, Dialog, DialogContent, DialogActions } from '@mui/material';
+import { Container, Link, Typography, Button } from '@mui/material';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -44,7 +43,7 @@ const NavBar = () => {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -90,7 +89,7 @@ const NavBar = () => {
             >
               {pages.map((page, index) => (
                 <MenuItem key={index} onClick={handleCloseNavMenu}>
-                  <Link href={`${page.to}`}>fff{page.page}</Link>
+                  <Link href={`${page.to}`}>{page.page}</Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -102,7 +101,7 @@ const NavBar = () => {
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
