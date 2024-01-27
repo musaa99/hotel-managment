@@ -2,7 +2,7 @@ import { Alert, Box, Button, Card, Container, Divider, Grid, Paper, Rating, Typo
 import React, { useState } from 'react';
 import Categories from '../Components/Categories';
 import { useSelector } from 'react-redux';
-import HotelItem from './HotelItems';
+import HotelItem from '../Components/HotelItems';
 
 const HotelCategories = () => {
 
@@ -23,12 +23,13 @@ const HotelCategories = () => {
 
   return (
     <Box>
-      <Card sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center',}}>
+      <Card sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', m: 4}}>
         <Categories selectedRating={category} setSelectedRating={setCategory} />
         <Button
           variant="contained"
           onClick={() => setCategory()}
           color="primary"
+          sx={{ml: 40, mr: 4, width: '200px'}}
         >
           Clear Filter
         </Button>

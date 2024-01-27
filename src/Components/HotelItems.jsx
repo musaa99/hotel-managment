@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { deleteHotel } from '../Redux/hotelsSlice';
 import { Card, CardContent, Typography, Button, Rating, Box } from '@mui/material';
 import HotelEditForm from './HotelEditForm';
-import Modal from '../Components/Modal';
+import Modal from './Modal';
 
 const HotelItem = ({ hotel }) => {
   const dispatch = useDispatch();

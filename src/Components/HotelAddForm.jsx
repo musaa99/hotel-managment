@@ -6,8 +6,8 @@ import { useSelector } from 'react-redux';
 import { addHotel } from '../Redux/hotelsSlice';
 
 import { TextField, Button, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
-import Categories from '../Components/Categories';
-import CustomSelect from '../Components/CustomSelect';
+import Categories from './Categories';
+import CustomSelect from './CustomSelect';
 
 const HotelAddForm = ({closeDialog}) => {
   const dispatch = useDispatch();

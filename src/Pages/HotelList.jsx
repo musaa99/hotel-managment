@@ -1,11 +1,11 @@
 // components/HotelList.js
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import HotelItem from './HotelItems';
+import HotelItem from '../Components/HotelItems';
 
 import { Box, Button, Grid, Paper } from '@mui/material';
 import Modal from '../Components/Modal';
-import HotelAddForm from './HotelAddForm';
+import HotelAddForm from '../Components/HotelAddForm';
 
 const HotelList = () => {
   const hotels = useSelector((state) => state.hotels.list);

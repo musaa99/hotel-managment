@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import './App.css';
-import HotelAddForm from './Pages/HotelAddForm';
 import HotelList from './Pages/HotelList';
 import { fetchCountries } from './Redux/countrySlice';
 import Home from './Pages/Home';
