@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import HotelItem from '../Components/HotelItems';
 
-import { Box, Button, Grid, Paper } from '@mui/material';
+import { Box, Button, Grid, } from '@mui/material';
 import Modal from '../Components/Modal';
 import HotelAddForm from '../Components/HotelAddForm';
 

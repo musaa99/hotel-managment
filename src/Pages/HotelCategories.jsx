@@ -1,4 +1,4 @@
-import { Alert, Box, Button, Card, Container, Divider, Grid, Paper, Rating, Typography } from '@mui/material';
+import { Alert, Box, Button, Card, Container, Divider, Grid, Rating, } from '@mui/material';
 import React, { useState } from 'react';
 import Categories from '../Components/Categories';
 import { useSelector } from 'react-redux';

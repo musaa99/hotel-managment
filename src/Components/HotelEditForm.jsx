@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { editHotel } from '../Redux/hotelsSlice';
-import { TextField, Button, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
+import { TextField, Button,  } from '@mui/material';
 import Categories from './Categories';
-import CustomSelect from './CustomSelect';
+// import CustomSelect from './CustomSelect';
 
 const HotelEditForm = ({ hotel, onClose }) => {
   const dispatch = useDispatch();

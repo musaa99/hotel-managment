@@ -1,11 +1,11 @@
 // components/HotelAddForm.js
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 import { addHotel } from '../Redux/hotelsSlice';
 
-import { TextField, Button, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
+import { TextField, Button, MenuItem,  } from '@mui/material';
 import Categories from './Categories';
 import CustomSelect from './CustomSelect';
 
