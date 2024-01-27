@@ -1,12 +1,22 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
 import './App.css';
-import HotelForm from './Component/HotelForm';
-import HotelList from './Component/HotelList';
+import CreateHotel from './Pages/CreateHotel';
+import HotelList from './Pages/HotelList';
+import { fetchCountries } from './Redux/countrySlice';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCountries())
+  }, [])
+
   return (
     <div className="App">
        <h1>Hotel Management App</h1>
-     <HotelForm/>
+     <CreateHotel/>
      <HotelList/>
     </div>
   );

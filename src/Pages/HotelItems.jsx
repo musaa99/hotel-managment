@@ -25,7 +25,7 @@ const HotelItem = ({ hotel }) => {
     <Card style={{ margin: '10px', padding: '10px' }}>
       <CardContent>
         <Typography variant="h5">{hotel.name}</Typography>
-        <Typography variant="subtitle1">Category: {hotel.category}</Typography>
+        <Typography variant="subtitle1" sx={{ my: 1 }}>Address: {hotel.city}, {hotel.country}</Typography>
         <Button variant="outlined" color="secondary" onClick={handleDelete}>
           Delete
         </Button>
